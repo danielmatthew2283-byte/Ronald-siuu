@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RONALDO — The Last Dance</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #c8102e;
+    --gold: #d4af37;
+    --black: #080808;
+    --white: #f5f5f5;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(200,16,46,0.2), transparent 55%),
+        linear-gradient(180deg, #080808, #140509);
+    z-index: -1;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+
+.logo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.header-text {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #aaa;
+}
+
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 8%;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 900px;
+    z-index: 2;
+}
+
+.tag {
+    color: var(--gold);
+    letter-spacing: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(60px, 12vw, 140px);
+    line-height: 0.9;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(200,16,46,0.4);
+}
+
+h1 span {
+    color: var(--red);
+}
+
+.subtitle {
+    font-size: clamp(14px, 2vw, 20px);
+    letter-spacing: 5px;
+    margin-top: 25px;
+    color: #ccc;
+}
+
+.divider {
+    width: 100px;
+    height: 3px;
+    background: var(--gold);
+    margin: 35px auto;
+}
+
+.description {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.8;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 35px;
+    background: var(--red);
+    color: white;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 3px;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--gold);
+    color: black;
+    transform: translateY(-4px);
+}
+
+section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 45px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    margin-bottom: 50px;
+}
+
+.tribute {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(200,16,46,0.1), rgba(0,0,0,0.8));
+    border-top: 1px solid rgba(212,175,55,0.2);
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+
+.tribute-text {
+    max-width: 750px;
+    margin: auto;
+    color: #ccc;
+    line-height: 2;
+    font-size: 15px;
+}
+
+.quote {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(25px, 5vw, 50px);
+    color: var(--white);
+    margin-top: 40px;
+    line-height: 1.3;
+}
+
+.quote span {
+    color: var(--gold);
+}
+
+.ca-section {
+    text-align: center;
+}
+
+.ca-box {
+    max-width: 750px;
+    margin: auto;
+    border: 1px solid var(--gold);
+    background: rgba(200,16,46,0.08);
+    padding: 25px;
+}
+
+.ca-label {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+}
+
+.ca-address {
+    word-break: break-all;
+    color: #eee;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.copy-btn {
+    margin-top: 20px;
+    padding: 13px 30px;
+    background: var(--gold);
+    color: black;
+    font-weight: 800;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.copy-btn:hover {
+    background: var(--red);
+    color: white;
+}
+
+footer {
+    padding: 30px 8%;
+    text-align: center;
+    border-top: 1px solid rgba(212,175,55,0.2);
+    color: #666;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    .header-text {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .section-title {
+        font-size: 35px;
+    }
+
+    .ca-box {
+        padding: 20px 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">RONALDO<span>.</span></div>
+    <div class="header-text">PORTUGAL • FOREVER</div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="tag">THE END OF AN ERA</div>
+
+        <h1>THE LAST<br><span>DANCE.</span></h1>
+
+        <div class="subtitle">
+            ONE LEGEND. ONE NATION. ONE LEGACY.
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="description">
+            A tribute to Cristiano Ronaldo and the unforgettable
+            journey with Portugal. From the first call-up to
+            becoming a national icon, the legacy will live forever.
+        </p>
+
+        <button class="btn" onclick="document.getElementById('tribute').scrollIntoView({behavior:'smooth'})">
+            HONOR THE LEGEND
+        </button>
+
+    </div>
+</section>
+
+<section class="tribute" id="tribute">
+
+    <h2 class="section-title">FOREVER CR7</h2>
+
+    <p class="tribute-text">
+        The tears. The trophies. The impossible goals.
+        The nights that made an entire nation believe.
+
+        <br><br>
+
+        Cristiano Ronaldo is more than a football player.
+        He is a symbol of determination, greatness, and
+        the relentless pursuit of perfection.
+
+        <br><br>
+
+        If this is truly the final chapter with Portugal,
+        then we say goodbye to a legend who gave everything
+        for the badge.
+    </p>
+
+    <div class="quote">
+        THE NUMBER 7<br>
+        <span>WILL NEVER BE FORGOTTEN.</span>
+    </div>
+
+</section>
+
+<section class="ca-section">
+
+    <h2 class="section-title">TOKEN ADDRESS</h2>
+
+    <div class="ca-box">
+
+        <div class="ca-label">CONTRACT ADDRESS</div>
+
+        <div class="ca-address" id="ca">
+            9vsn9AFhURTzbrYnr95MhhbzdC73C2WsKBLD9dUMpump
+        </div>
+
+        <button class="copy-btn" id="copyBtn" onclick="copyCA()">
+            COPY CA
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    CR7 • PORTUGAL • THE LEGACY LIVES FOREVER
+</footer>
+
+<script>
+function copyCA() {
+    const ca = document.getElementById("ca").innerText;
+    const btn = document.getElementById("copyBtn");
+
+    navigator.clipboard.writeText(ca).then(() => {
+        btn.innerText = "COPIED!";
+        btn.style.background = "#00c853";
+
+        setTimeout(() => {
+            btn.innerText = "COPY CA";
+            btn.style.background = "#d4af37";
+        }, 2000);
+    }).catch(() => {
+        const textArea = document.createElement("textarea");
+        textArea.value = ca;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        btn.innerText = "COPIED!";
+        setTimeout(() => {
+            btn.innerText = "COPY CA";
+        }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>
